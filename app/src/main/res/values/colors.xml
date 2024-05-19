@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#F3F0ED</color>
+    <color name="accent_color">#EFA56F</color>
+    <color name="background_color">#FDFDFD</color>
+    <color name="dark_color">#3B2419</color>
+    <color name="default_capibara">#724E40</color>
+    <color name="background_capibara">#FFF3E6</color>
+</resources>
