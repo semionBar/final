@@ -1,12 +1,13 @@
 package com.example.myapplication.ui.cart
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.myapplication.CartFileHelper
 import com.example.myapplication.R
 import com.example.myapplication.ui.home.FragmentHome
@@ -45,6 +46,8 @@ class FragmentCartPayment : Fragment() {
 
             // Добавление транзакции в стек возврата
             transaction.addToBackStack(null)
+
+            Toast.makeText(requireActivity(), "Заказ успешно создан", Toast.LENGTH_SHORT).show()
 
             // Подтверждение транзакции
             transaction.commit()
