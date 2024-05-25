@@ -10,33 +10,64 @@ import java.io.IOException
 class CartFileHelper () {
 
     fun writeToCsv(file: String, productCard: ProductCard, context: Context) {
-        val data = "${productCard.id}, \"${productCard.title}\", \"${productCard.image}\", ${productCard.price}, 1\n"
 
-        try {
-            val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)
-            fileOutputStream.write(data.toByteArray())
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-            val f = File(context.filesDir, file)
-            f.createNewFile()
-            val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
-            fileOutputStream.write(data.toByteArray())
+        var data = "${productCard.id}, \"${productCard.title}\", \"${productCard.image}\", ${productCard.price}, 1\n"
 
-        } catch (e: NumberFormatException){
-            e.printStackTrace()
-        } catch (e: IOException){
-            e.printStackTrace()
-        } catch (e: Exception){
-            e.printStackTrace()
+        var productCards = readCsv(file, context)
+
+        if (productCards.any { it.id == productCard.id }) {
+            //если такой товар уже имеется, то прибавить 1
+            val index = productCards.find {it.id == productCard.id}
+            index?.amount = index?.amount!! + 1
+
+            data = ""
+            for (card in productCards) {
+                data += "${card.id}, \"${card.title}\", \"${card.image}\", ${card.price}, ${card.amount}\n"
+            }
+            try {
+                val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+                fileOutputStream.write(data.toByteArray())
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+                val f = File(context.filesDir, file)
+                f.createNewFile()
+                val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+                fileOutputStream.write(data.toByteArray())
+            } catch (e: NumberFormatException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
-        Toast.makeText(context,"data save", Toast.LENGTH_LONG).show()
+        else {
+            try {
+                val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)
+                fileOutputStream.write(data.toByteArray())
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+                val f = File(context.filesDir, file)
+                f.createNewFile()
+                val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+                fileOutputStream.write(data.toByteArray())
+            } catch (e: NumberFormatException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     fun clearCsv(file: String, context: Context) {
         val data = ""
 
+        readCsv(file,context)
+
         try {
-            val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)
+            val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
             fileOutputStream.write(data.toByteArray())
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
@@ -45,11 +76,11 @@ class CartFileHelper () {
             val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
             fileOutputStream.write(data.toByteArray())
 
-        } catch (e: NumberFormatException){
+        } catch (e: NumberFormatException) {
             e.printStackTrace()
-        } catch (e: IOException){
+        } catch (e: IOException) {
             e.printStackTrace()
-        } catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
         Toast.makeText(context,"data save", Toast.LENGTH_LONG).show()
@@ -63,7 +94,6 @@ class CartFileHelper () {
     }
 
     fun readCsv(file: String, context: Context) : List<ProductCard> {
-
         try {
             val inputStream = context.openFileInput(file)
 
