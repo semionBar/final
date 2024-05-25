@@ -25,7 +25,7 @@ class FragmentCart : Fragment() {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
 
         //добавление карточек товаров
-        val cartCardsList: RecyclerView = view.findViewById(R.id.cartRecycler)
+        val cartCardsList: RecyclerView = view.findViewById(R.id.cart_recycler)
 
         //cartCards.add(ProductCard(1,"Корм", "Путь tо картинки", 100 ,1))
         //cartCards.add(ProductCard(2,"Корм2", "Путь до картинки", 120 ,1 ))

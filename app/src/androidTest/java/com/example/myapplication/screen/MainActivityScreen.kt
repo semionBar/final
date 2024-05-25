@@ -9,6 +9,6 @@ object MainActivityScreen: KScreen<MainActivityScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val bottomNavigator: KBottomNavigationView =  KBottomNavigationView { withId(R.id.bottomNav) }
+    val bottomNavigator: KBottomNavigationView =  KBottomNavigationView { withId(R.id.bottom_nav) }
 
 }

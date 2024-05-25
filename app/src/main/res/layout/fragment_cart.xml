@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/promotionHomeTittle"
+        android:id="@+id/promotion_home_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -24,12 +24,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/back_image_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_back_button"
-        app:layout_constraintEnd_toStartOf="@+id/promotionHomeTittle"
+        app:layout_constraintEnd_toStartOf="@+id/promotion_home_tittle"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promotionHomeTittle">
+        app:layout_constraintTop_toBottomOf="@+id/promotion_home_tittle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cartRecycler"
+                android:id="@+id/cart_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"

@@ -22,7 +22,7 @@ class EmptyCartFragmentTest: TestCase() {
         }
         CartEmptyScreen {
             emptyCartHint.isVisible()
-            emptyCartHint.containsText("Корзина пуста. Добавьте товары и они будут отображены здесь!")
+            emptyCartHint.containsText("Корзина пуста. Добавьте товары, и они будут отображены здесь!")
         }
     }
 }

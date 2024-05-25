@@ -1,13 +1,12 @@
 package com.example.myapplication.ui.login
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import android.util.Patterns
+import com.example.myapplication.R
 import com.example.myapplication.data.LoginRepository
 import com.example.myapplication.data.Result
-
-import com.example.myapplication.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
@@ -43,8 +42,9 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         return if (username.contains('@')) {
             Patterns.EMAIL_ADDRESS.matcher(username).matches()
         } else {
-            username.isNotBlank()
+            !username.contains("""\W""".toRegex())
         }
+
     }
 
     // A placeholder password validation check

@@ -20,13 +20,13 @@ object HomeFragmentScreen: KScreen<HomeFragmentScreen>() {
 
 
     val rvCards = KRecyclerView(
-        builder = { withId(R.id.cartRecycler) },
+        builder = { withId(R.id.cart_recycler) },
         itemTypeBuilder = { itemType(::HomeFragmentScreen) }
     )
 
     class HomeFragmentScreen(matcher: Matcher<View>): KRecyclerItem<HomeFragmentScreen>(matcher) {
 
-        val button = KButton(matcher) {withId(R.id.addToCartButton)}
+        val button = KButton(matcher) {withId(R.id.add_to_cart_button)}
         val price = KTextView(matcher) {withId(R.id.product_price)}
         val tittle = KTextView(matcher) {withId(R.id.product_title)}
 

@@ -15,7 +15,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/snfbstrd_handwrite"
         android:gravity="center"
-        android:text="Корзина пуста. Добавьте товары и они будут отображены здесь!"
+        android:text="Корзина пуста. Добавьте товары, и они будут отображены здесь!"
         android:textColor="@color/default_capibara"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

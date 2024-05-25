@@ -9,5 +9,5 @@ object CartPaymentScreen: KScreen<CartPaymentScreen>() {
     override val viewClass: Class<*>? = null
 
 
-    val continuePurchaseButton = KButton {withId(R.id.addToCartButton)}
+    val continuePurchaseButton = KButton {withId(R.id.add_to_cart_button)}
 }

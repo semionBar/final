@@ -1,21 +1,16 @@
 package com.example.myapplication.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.CardsAdapter
 import com.example.myapplication.R
 import com.example.myapplication.model.ProductCard
-import java.io.BufferedWriter
-import java.io.File
-import java.io.FileWriter
-import java.io.InputStream
-import java.io.InputStreamReader
 
 
 class FragmentHome : Fragment() {
@@ -27,11 +22,7 @@ class FragmentHome : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        val promotionList: RecyclerView = view.findViewById(R.id.cartRecycler)
-
-        var cartCardsList = arrayListOf<ProductCard>()
-
-
+        val promotionList: RecyclerView = view.findViewById(R.id.cart_recycler)
 
         val promotions = arrayListOf<ProductCard>()
 
@@ -58,7 +49,6 @@ class FragmentHome : Fragment() {
         popularList.adapter = context?.let { CardsAdapter(popular, it) }
 
         val button = view.findViewById<Button>(R.id.showAllHomeButton1)
-
 
         // Установка слушателя нажатия на кнопку
         button.setOnClickListener {

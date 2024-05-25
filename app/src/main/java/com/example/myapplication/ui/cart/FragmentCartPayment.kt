@@ -32,7 +32,7 @@ class FragmentCartPayment : Fragment() {
 
         view.findViewById<TextView>(R.id.totalSumTextView).text = "Итого: " + (deliverySum + orderSum) + "₽"
 
-        view.findViewById<Button>(R.id.addToCartButton).setOnClickListener {
+        view.findViewById<Button>(R.id.add_to_cart_button).setOnClickListener {
 
             // Получение менеджера фрагментов
             val fragmentManager = requireActivity().supportFragmentManager

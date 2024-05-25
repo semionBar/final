@@ -10,7 +10,7 @@ import java.io.IOException
 class CartFileHelper () {
 
     fun writeToCsv(file: String, productCard: ProductCard, context: Context) {
-        var data = "${productCard.id}, \"${productCard.title}\", \"${productCard.image}\", ${productCard.price}, 1\n"
+        val data = "${productCard.id}, \"${productCard.title}\", \"${productCard.image}\", ${productCard.price}, 1\n"
 
         try {
             val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)
@@ -33,7 +33,7 @@ class CartFileHelper () {
     }
 
     fun clearCsv(file: String, context: Context) {
-        var data = ""
+        val data = ""
 
         try {
             val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)

@@ -14,8 +14,8 @@ object CartScreen: KScreen<CartScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val cartTitle: KTextView = KTextView {withId(R.id.promotionHomeTittle)}
-    val backButton: KButton = KButton {withId(R.id.imageButton)}
+    val cartTitle: KTextView = KTextView {withId(R.id.promotion_home_tittle)}
+    val backButton: KButton = KButton {withId(R.id.back_image_button)}
     val addressTitle: KTextView = KTextView {withId(R.id.AddressTextView)}
 
     val addressEditText: KEditText = KEditText {withId(R.id.editTextText)}
@@ -27,7 +27,7 @@ object CartScreen: KScreen<CartScreen>() {
     val continuePurchaseButton: KButton = KButton {withId(R.id.continuePurchaseButton)}
 
     val rvCartCards = KRecyclerView(
-        builder = { withId(R.id.cartRecycler) },
+        builder = { withId(R.id.cart_recycler) },
         itemTypeBuilder = { itemType(::CartScreen) }
     )
 

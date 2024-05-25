@@ -22,7 +22,7 @@ class CardsAdapter(var cards: List<ProductCard>, var context: Context) : Recycle
         val image: ImageView = view.findViewById(R.id.product_image)
         val price: TextView = view.findViewById(R.id.product_price)
         val title: TextView = view.findViewById(R.id.product_title)
-        val button = view.findViewById<Button>(R.id.addToCartButton)
+        val button = view.findViewById<Button>(R.id.add_to_cart_button)
 
         fun addToCart(card: ProductCard) {
 
@@ -85,6 +85,5 @@ class CardsAdapter(var cards: List<ProductCard>, var context: Context) : Recycle
         holder.title.text = cards[position].title
         holder.price.text = cards[position].price.toString() + "₽"
         holder.addToCart(cards[position])
-
     }
 }

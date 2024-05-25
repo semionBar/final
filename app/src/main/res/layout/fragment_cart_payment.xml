@@ -8,7 +8,7 @@
     tools:context=".ui.cart.FragmentCartPayment">
 
     <TextView
-        android:id="@+id/promotionHomeTittle"
+        android:id="@+id/promotion_home_tittle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -24,12 +24,12 @@
         tools:ignore="TextSizeCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/back_image_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_back_button"
-        app:layout_constraintEnd_toStartOf="@+id/promotionHomeTittle"
+        app:layout_constraintEnd_toStartOf="@+id/promotion_home_tittle"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/orderSumTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promotionHomeTittle"
+        app:layout_constraintTop_toBottomOf="@+id/promotion_home_tittle"
         >
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/deliverySumTextView" />
 
     <Button
-        android:id="@+id/addToCartButton"
+        android:id="@+id/add_to_cart_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"

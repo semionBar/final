@@ -28,7 +28,7 @@ class FragmentHomePromotions : Fragment() {
 
 
         // Вывод товаров
-        val promotionList: RecyclerView = view.findViewById(R.id.cartRecycler)
+        val promotionList: RecyclerView = view.findViewById(R.id.cart_recycler)
 
         val promotions = arrayListOf<ProductCard>().apply {
 
@@ -52,7 +52,7 @@ class FragmentHomePromotions : Fragment() {
         //promotionList.adapter = context?.let { CardsAdapter(promotions, it) }
 
         // Выпадающий список сортировки
-        spinner = view.findViewById(R.id.sortTypeSpinner)
+        spinner = view.findViewById(R.id.sort_type_spinner)
 
         val listSortTypes = listOf("По возрастанию цены", "По убыванию цены")
 
@@ -84,7 +84,7 @@ class FragmentHomePromotions : Fragment() {
             }
         }
 
-        val imageButton = view.findViewById<ImageButton>(R.id.imageButton)
+        val imageButton = view.findViewById<ImageButton>(R.id.back_image_button)
 
         imageButton.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager

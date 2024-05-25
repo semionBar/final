@@ -13,5 +13,5 @@ object LoginScreen : KScreen<LoginScreen>() {
 
     val loginInput: KEditText = KEditText { withId(R.id.username) }
     val passwordInput: KEditText = KEditText { withId(R.id.password) }
-    val loginButton: KButton = KButton { withId(R.id.loginButton) }
+    val loginButton: KButton = KButton { withId(R.id.login_button) }
 }

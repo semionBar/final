@@ -9,6 +9,6 @@ object HomePromotionsFragmentScreen: KScreen<HomePromotionsFragmentScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val screenTittle: KTextView = KTextView {withId(R.id.promotionHomeTittle)}
-    val backButton: KButton = KButton {withId(R.id.imageButton)}
+    val screenTittle: KTextView = KTextView {withId(R.id.promotion_home_tittle)}
+    val backButton: KButton = KButton {withId(R.id.back_image_button)}
 }
