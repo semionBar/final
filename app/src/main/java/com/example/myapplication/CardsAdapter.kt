@@ -8,12 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.model.ProductCard
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.IOException
 
 
 class CardsAdapter(var cards: List<ProductCard>, var context: Context) : RecyclerView.Adapter<CardsAdapter.MyViewHolder>() {
@@ -45,32 +41,7 @@ class CardsAdapter(var cards: List<ProductCard>, var context: Context) : Recycle
             }
 
         }
-
     }
-
-    private fun writeToCsv(file: String, productCard: ProductCard) {
-        var data = "1, \"123213\", \"Путь до 2345234\", 120, 2\n"
-
-        try {
-            val fileOutputStream = context.openFileOutput(file, Context.MODE_APPEND)
-            fileOutputStream.write(data.toByteArray())
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-            val f = File(context.filesDir, file)
-            f.createNewFile()
-            val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
-            fileOutputStream.write(data.toByteArray())
-
-        } catch (e: NumberFormatException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        Toast.makeText(context, "data save", Toast.LENGTH_LONG).show()
-    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_in_list, parent, false)

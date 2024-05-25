@@ -61,6 +61,51 @@ class CartFileHelper () {
         }
     }
 
+    fun removeFromCsv (file: String, card: ProductCard, context: Context) {
+        val productCards = readCsv(file, context)
+        val newProductCards: List<ProductCard>
+
+        if (productCards.any { it.id == card.id }) {
+            val productCard = productCards.find { it.id == card.id }
+            if (productCard != null) {
+                if (productCard.amount == 1) {
+                    newProductCards = productCards.filter { it.id != productCard.id }
+                    rewriteCsv(file, context, newProductCards)
+                }
+                else {
+                    productCard.amount--
+                    rewriteCsv(file, context, productCards)
+                }
+            }
+        }
+    }
+
+    fun rewriteCsv (file: String, context: Context, productCards: List<ProductCard>) {
+
+        var data: String = ""
+
+        for (card in productCards) {
+            data += "${card.id}, \"${card.title}\", \"${card.image}\", ${card.price}, ${card.amount}\n"
+        }
+        try {
+            val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+            fileOutputStream.write(data.toByteArray())
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+            val f = File(context.filesDir, file)
+            f.createNewFile()
+            val fileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+            fileOutputStream.write(data.toByteArray())
+        } catch (e: NumberFormatException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+
     fun clearCsv(file: String, context: Context) {
         val data = ""
 

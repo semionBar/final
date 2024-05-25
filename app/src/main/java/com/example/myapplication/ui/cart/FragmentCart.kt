@@ -63,6 +63,21 @@ class FragmentCart : Fragment() {
             // Подтверждение транзакции
             transaction.commit()
         }
+
+        cartCardsList.setRecyclerListener {
+            if ((cartCardsList.adapter?.itemCount ?: 0) == 0) {
+                val fragmentManager = requireActivity().supportFragmentManager
+
+                val transaction = fragmentManager.beginTransaction()
+
+                transaction.replace(R.id.home_layout, FragmentCartEmpty())
+
+                transaction.addToBackStack(null)
+
+                transaction.commit()
+            }
+        }
+
         return view
     }
 
